@@ -1,8 +1,35 @@
 <img src="./icon.png" width="100%" height="100%" alt="" div align=center />
 
-# SensorsCalibration toolbox v0.1
+# SensorsCalibration toolbox v0.1.1
 
 SensorsCalibration is a simple calibration toolbox and open source project, mainly used for sensor calibration in autonomous driving.
+
+## Modification from BayRanger
+* dummy docker script for X11 visualization
+
+to run with the docker container 
+```
+chmod +x run_docker.sh
+./run_docker.sh
+```
+**Please pull the correct docker image!! v1 instead of latest version**
+
+to enable the visualization tool, you also need to use sudo, like
+```
+sudo ./Lidar2lidar xxxxxmany_parameters
+```
+
+to visualize the pcl in ubuntu
+```
+sudo apt update
+sudo apt install pcl-tools
+
+
+
+
+pcl_viewer yours.pcd
+
+```
 
 ## Introduction
 
@@ -12,10 +39,11 @@ Sensor calibration is the foundation block of any autonomous system and its cons
 
 ```shell
 # pull docker image
-sudo docker pull scllovewkf/opencalib:latest
-# After the image is pulled down, start the docker image.  /home/sz3/ailab/ =  code root path on your host
-docker run -it -v /home/sz3/ailab/:/share scllovewkf/opencalib:latest /bin/bash
-``` 
+sudo docker pull scllovewkf/ opencalib:v1
+# After the image is pulled down, run the script.
+cd SensorsCalibration
+./run_docker.sh
+```
 
 ### Sensors calibration
 This calibration toolbox provides some calibration tools based on road scenes. The specific contents are as follows. If you want to use one of the calibration tools in the list below, you can click the use link to enter the instruction page. 
@@ -42,7 +70,7 @@ At the same time, the calibration toolbox also provides some factory calibration
 | apriltag board    | Camera            | [apriltag board ](./factory_calib/pattern/april_board.pdf) |   &#10004;  |  &#10004;       |[factory calib](factory_calib/README.md)|
 | aruco marker board| Camera            | [aruco marker board ](./factory_calib/pattern/aruco_marker_board.pdf) |   &#10004;  |  &#10004;     |[factory calib](factory_calib/README.md)|
 | round hole board  | Camera and LiDAR  | [round hole board ](./factory_calib/pattern/round_hole_board.pdf) |   &#10004;  |      &#10004;      |[factory calib](factory_calib/README.md)|
- 
+
 
 ## Related paper 
 Related paper available on arxiv:  
