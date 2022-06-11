@@ -1,10 +1,10 @@
-<img src="./icon.png" width="100%" height="100%" alt="" div align=center />
+<mg src="./icon.png" width="100%" height="100%" alt="" div align=center />
 
 # SensorsCalibration toolbox v0.1.1
 
 SensorsCalibration is a simple calibration toolbox and open source project, mainly used for sensor calibration in autonomous driving.
 
-## Modification from BayRanger
+## Modification from BR
 * dummy docker script for X11 visualization
 
 to run with the docker container 
