@@ -16,7 +16,6 @@ then
 else
 
     echo "NVIDIA GPU NOT detected, initialization calibration container"
-    docker run -it --privileged=true --net=host --gpus all \
     docker run -it --privileged=true --net=host \
        --env="DISPLAY" \
        --env="QT_X11_NO_MITSHM=1" \
