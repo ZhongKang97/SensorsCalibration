@@ -1,14 +1,8 @@
-<<<<<<< HEAD
 cmake_minimum_required(VERSION 3.5)
 project(LidarToImu)
 add_definitions(-w)
 set(CMAKE_CXX_FLAGS "-std=c++11 -g -Wall -lstdc++fs")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-=======
-cmake_minimum_required(VERSION 2.8.3)
-project(LidarToImu)
-set(CMAKE_CXX_FLAGS "-std=c++11 -g -Wall")
->>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
 ## Get Pangolin
 find_package(Pangolin 0.4 REQUIRED)
 include_directories(${Pangolin_INCLUDE_DIRS})
@@ -38,7 +32,6 @@ target_link_libraries(${PROJECT_NAME} libjsoncpp.a ${OpenCV_LIBS} ${Boost_SYSTEM
 add_executable(run_lidar2imu src/run_lidar2imu.cpp)
 target_link_libraries(run_lidar2imu ${PROJECT_NAME})
 target_link_libraries(run_lidar2imu ${PCL_LIBRARIES})
-<<<<<<< HEAD
 
 
 add_executable(run_adapt_file src/run_adapt_file.cc)
@@ -48,5 +41,3 @@ target_link_libraries(run_lidar2imu ${PCL_LIBRARIES})
 add_executable(run_adapt_pcd_format src/run_adapt_pcd_format.cc)
 target_link_libraries(run_adapt_pcd_format ${PROJECT_NAME})
 target_link_libraries(run_adapt_pcd_format ${PCL_LIBRARIES})
-=======
->>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
