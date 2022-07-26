@@ -5,6 +5,7 @@
  * Ouyang Jinhua <ouyangjinhua@pjlab.org.cn>
  */
 #include <Eigen/Core>
+#include <cstdlib>
 #include <pcl/common/transforms.h>
 #include <pcl/conversions.h>
 #include <pcl/io/pcd_io.h>
@@ -20,13 +21,16 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-  if (argc != 4) {
+  if (argc < 4) {
     cout << "Usage: ./run_lidar2imu <lidar_pcds_dir> <poses_path> "
+            "<exitrisic_file> <turn_size> <window_size>"
             "<extrinsic_json> "
             "\nexample:\n\t"
             "./bin/run_lidar2imu data/top_center_lidar/ "
             "data/NovAtel-pose-lidar-time.txt "
             "data/gnss-to-top_center_lidar-extrinsic.json "
+            "35 "
+            "50"
          << endl;
     return 0;
   }
@@ -39,7 +43,7 @@ int main(int argc, char **argv) {
   LoadExtrinsic(extrinsic_json, json_param);
   LOGI("Load extrinsic!");
   // convert to lidar 2 imu
-  Eigen::Matrix4d lidar2imu_extrinsic = json_param.inverse().eval();//Til
+  Eigen::Matrix4d lidar2imu_extrinsic = json_param.inverse().eval(); // Til
   std::cout << json_param << std::endl;
   Eigen::Matrix4d transform = Eigen::Matrix4d::Identity();
   // Registrator registrator;
@@ -51,6 +55,10 @@ int main(int argc, char **argv) {
   // std::cout << "the calibration result is " << std::endl;
   // std::cout << transform << std::endl;
   Calibrator calibrator;
+  if (argc >= 5)
+    calibrator.setTurn(atoi(argv[4]));
+  if (argc == 6)
+    calibrator.setWindow(atoi(argv[5]));
   calibrator.Calibration(lidar_pcds_dir, poses_path, lidar2imu_extrinsic);
 
   return 0;

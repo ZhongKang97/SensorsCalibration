@@ -21,6 +21,7 @@
 #include <pcl/point_types.h>
 
 #include "common/Lidar_parser_base.h"
+#include "logging.hpp"
 
 class Calibrator {
 public:
@@ -38,12 +39,20 @@ public:
                    const Eigen::Matrix4d init_Tl2i);
   void SaveStitching(const Eigen::Matrix4d transform,
                      const std::string pcd_name);
+  inline void setTurn(int new_turn) {
+    LOGI("setting turn_ from %d to:%d", turn_, new_turn);
+    turn_ = new_turn;
+  }
+  inline void setWindow(int new_window) {
+    LOGI("setting window_ from %d to:%d", window_, new_window);
+    window_ = new_window;
+  }
 
 private:
-  //int turn_ = 35;
+  // int turn_ = 35;
   int turn_ = 20;
-  //int window_ = 50;
-  int window_ = 150;
+  // int window_ = 50;
+  int window_ = 120;
   std::vector<std::string> lidar_files_;
   std::vector<Eigen::Matrix4d> lidar_poses_;
   // std::vector<pcl::PointCloud<LidarPointXYZIRT>> pcd_seq_;

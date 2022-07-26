@@ -169,7 +169,7 @@ public:
 
     std::vector<PL_VEC *> temp1,temp2;
     root->plvec_orig.swap(temp1);
-    root->plvec_tran.swap(temp1);
+    root->plvec_tran.swap(temp2);
 
     std::vector<pcl::PointXYZINormal> temp3;
     root->ap_centor_direct_origs.swap(temp3);
@@ -419,7 +419,8 @@ void cut_voxel(std::unordered_map<VOXEL_LOC, OCTO_TREE *> &feat_map,
                int feattype, int fnum, int capacity) {
   double voxel_size[2] = {1, 1}; // {surf, corn}
   uint plsize = pl_feat->size();
-  std::cout<<"pl feature size:"<<plsize<<std::endl;
+  std::cout<<"pl feature size:\t"<<plsize<<std::endl;
+  std::cout << "\33[1A";
   for (uint i = 0; i < plsize; i++) {
     // Transform point to world coordinate
     pcl::PointXYZI &p_c = pl_feat->points[i];
