@@ -116,9 +116,10 @@ void Calibrator::Calibration(const std::string lidar_path,
       std::vector<Eigen::Matrix4d> temp_vect;
       OCTO_TREE::imu_transmat.swap(temp_vect);
     }
-    LOGI("imu_transmat cap:[%d]",OCTO_TREE::imu_transmat.capacity());
+    LOGI("imu_transmat cap:[%d]", OCTO_TREE::imu_transmat.capacity());
     // std::cout << "imu_transmat cap " << OCTO_TREE::imu_transmat.capacity()
     //           << std::endl;
+
     Eigen::Matrix4d deltaTrans = GetDeltaTrans(deltaRPY, deltaT);
     OCTO_TREE::voxel_windowsize = frmnum;
     int window_size = frmnum;
@@ -129,7 +130,9 @@ void Calibrator::Calibration(const std::string lidar_path,
       pcl::PointCloud<LidarPointXYZIRT>::Ptr cloud(
           new pcl::PointCloud<LidarPointXYZIRT>);
       if (pcl::io::loadPCDFile(lidar_file_name, *cloud) < 0) {
-        std::cout << "cannot open pcd_file: " << lidar_file_name << "\n";
+        LOGE("imu_transmat cannot open pcd_file: :[%s]",
+             lidar_file_name.c_str());
+        // std::cout << "cannot open pcd_file: " << lidar_file_name << "\n";
         exit(1);
       }
       pcl::PointCloud<pcl::PointXYZI>::Ptr pl_corn(
@@ -150,9 +153,8 @@ void Calibrator::Calibration(const std::string lidar_path,
       } else {
         cut_voxel(surf_map, pl_surf, refined_T, 0, frmIdx, window_size + 5);
       }
-      // if (i > turn / 2)
-      //     cut_voxel(corn_map, pl_corn, refined_T, 1, frmIdx, window_size +
-      //     5);
+      if (i > turn_ / 2)
+        cut_voxel(corn_map, pl_corn, refined_T, 1, frmIdx, window_size + 5);
 
       // Points in new frame have been distributed in corresponding root node
       // voxel
@@ -175,7 +177,7 @@ void Calibrator::Calibration(const std::string lidar_path,
       {
         pcl::PointCloud<LidarPointXYZIRT> temp;
         cloud->swap(temp);
-        pcl::PointCloud<pcl::PointXYZI> temp_2,temp_3,temp_4;
+        pcl::PointCloud<pcl::PointXYZI> temp_2, temp_3, temp_4;
         pl_corn->swap(temp_2);
         pl_surf->swap(temp_3);
         pl_surf_sharp->swap(temp_4);
@@ -204,9 +206,9 @@ void Calibrator::Calibration(const std::string lidar_path,
     }
     std::cout << "corn_map cap " << corn_map.size() << std::endl;
     std::cout << "surf_map cap " << surf_map.size() << std::endl;
-    
+
     {
-      std::unordered_map<VOXEL_LOC, OCTO_TREE *> temp,temp2;
+      std::unordered_map<VOXEL_LOC, OCTO_TREE *> temp, temp2;
       corn_map.swap(temp);
       surf_map.swap(temp2);
     }
