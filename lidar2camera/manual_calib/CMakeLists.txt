@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 cmake_minimum_required(VERSION 3.5)
 project(lidar2camera)
 set(CMAKE_CXX_FLAGS "-std=c++11 -g -Wall")
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+=======
+cmake_minimum_required(VERSION 2.8.3)
+project(lidar2camera)
+set(CMAKE_CXX_FLAGS "-std=c++11 -g -Wall")
+
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
 find_package(Pangolin REQUIRED)
 include_directories(${Pangolin_INCLUDE_DIRS})
 link_directories(${Pangolin_LIBRARY_DIRS})

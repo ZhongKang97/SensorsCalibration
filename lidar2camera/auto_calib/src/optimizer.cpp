@@ -38,7 +38,11 @@ void Optimizer::Calibrate(
 
   std::cout << "before loss: " << maxPointCnt << std::endl;
 
+<<<<<<< HEAD
   int iteration_num = 10;
+=======
+  int iteration_num = 0;
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
   Eigen::Matrix3d rotation_matrix = curr_optim_extrinsic_.block<3, 3>(0, 0);
   Eigen::Vector3d ea = rotation_matrix.eulerAngles(2, 1, 0);
   float target_extrinsic_vec[6] = {0}, curr_optim_extrinsic_vec[6] = {0};

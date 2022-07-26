@@ -133,8 +133,13 @@ void LidarFeature::extract_objects(
 
   // get lane
   for (unsigned long i = 0; i < cloud_p->size(); i++) {
+<<<<<<< HEAD
     //if (cloud_p->points[i].intensity >= intensity_threshold && cloud_p->points[i].y > -10 && cloud_p->points[i].y < 10)
     if (cloud_p->points[i].y > -10 && cloud_p->points[i].y < 10) {
+=======
+    if (cloud_p->points[i].intensity >= intensity_threshold &&
+        cloud_p->points[i].y > -10 && cloud_p->points[i].y < 10) {
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
       cloud_lane->push_back(cloud_p->points[i]);
       cloud_lane_mark->push_back(cloud_p->points[i]);
     }

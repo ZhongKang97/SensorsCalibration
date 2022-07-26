@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 #include <pcl/io/pcd_io.h>
+=======
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
 #include <stdio.h>
 #include <dirent.h>
 #include <iostream>

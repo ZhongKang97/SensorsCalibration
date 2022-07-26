@@ -9,6 +9,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+<<<<<<< HEAD
 camera_intrinsic/intrinsic_calib/data/2.png
 camera_intrinsic/intrinsic_calib/data/3.png
 camera_intrinsic/intrinsic_calib/data/4.png
@@ -425,3 +426,5 @@ lidar2camera/manual_calib/mydata/left_calib/calibimg_left_1.txt
 lidar2camera/manual_calib/mydata/left_calib/calibimg_left_dense_1.jpg
 lidar2camera/manual_calib/mydata/right_calib/calibimg_right_1.jpg
 lidar2camera/manual_calib/mydata/right_calib/calibration_right_1.txt
+=======
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e

@@ -153,5 +153,9 @@ dependencies:
     - torch==1.7.1
     - torchvision==0.8.2
     - typing-extensions==3.7.4.3
+<<<<<<< HEAD
 prefix: /home/zhongkang97/anaconda3/envs/lidar2camera
+=======
+prefix: /home/yanguohang/anaconda3/envs/lidar2camera
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
 

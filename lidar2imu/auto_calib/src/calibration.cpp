@@ -17,6 +17,7 @@
 #include <memory>
 #include <ostream>
 #include <thread>
+
 Calibrator::Calibrator(){
 
 };
@@ -57,6 +58,7 @@ void Calibrator::LoadTimeAndPoes(const std::string &filename,
     min_y = std::min(min_y, Ti(1, 3));
     min_z = std::min(min_z, Ti(2, 3));
     lidarPoses.emplace_back(Ti); // now Ti means Twl
+
   }
   file.close();
 }
@@ -119,6 +121,7 @@ void Calibrator::Calibration(const std::string lidar_path,
     LOGI("imu_transmat cap:[%d]", OCTO_TREE::imu_transmat.capacity());
     // std::cout << "imu_transmat cap " << OCTO_TREE::imu_transmat.capacity()
     //           << std::endl;
+
     Eigen::Matrix4d deltaTrans = GetDeltaTrans(deltaRPY, deltaT);
     OCTO_TREE::voxel_windowsize = frmnum;
     int window_size = frmnum;

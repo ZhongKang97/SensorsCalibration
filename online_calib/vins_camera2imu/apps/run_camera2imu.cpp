@@ -30,6 +30,10 @@ int main(int argc, char **argv)
                "~/data/2021_01_05_14_43_28/center_camera.txt ./outputs/\n");
         return 1;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
      // string config_file = argv[1];
     string car_config_path = argv[1];
     string raw_imu_file = argv[2];

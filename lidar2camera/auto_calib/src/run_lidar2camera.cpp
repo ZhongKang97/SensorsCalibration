@@ -48,6 +48,9 @@ int main(int argc, char **argv) {
   // optimizing
   Optimizer optimizer(&intrinsic, &extrinsic);
   optimizer.Calibrate(&distance_img, register_cloud);
+<<<<<<< HEAD
   
+=======
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
   return 0;
 }

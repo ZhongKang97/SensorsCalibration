@@ -259,6 +259,7 @@ int main(int argc, char **argv) {
   // glDepthFunc(GL_LESS);
 
   pangolin::OpenGlRenderState s_cam(
+<<<<<<< HEAD
       pangolin::ProjectionMatrix(1280, 720, 9.1000881138346699e+02, 9.0693502427836768e+02, 6.6601788175313982e+02, 3.7290465013932015e+02, 0.1, 1000),
       pangolin::ModelViewLookAt(0, 0, 100, 0, 0, 0, 0.0, 1.0, 0.0));
   
@@ -266,6 +267,10 @@ int main(int argc, char **argv) {
       pangolin::ProjectionMatrix(1024, 768, 500, 500, 512, 389, 0.1, 1000),
       pangolin::ModelViewLookAt(0, 0, 100, 0, 0, 0, 0.0, 1.0, 0.0)); */
 
+=======
+      pangolin::ProjectionMatrix(1024, 768, 500, 500, 512, 389, 0.1, 1000),
+      pangolin::ModelViewLookAt(0, 0, 100, 0, 0, 0, 0.0, 1.0, 0.0));
+>>>>>>> 6732fdc908e897b074bfced2d0529ae6b5894d8e
 
   pangolin::View &project_image =
       pangolin::Display("project")
