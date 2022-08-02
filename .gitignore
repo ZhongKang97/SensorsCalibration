@@ -430,3 +430,15 @@ lidar2camera/manual_calib/mydata/left_calib/calibimg_left_dense_1.jpg
 lidar2camera/manual_calib/mydata/right_calib/calibimg_right_1.jpg
 lidar2camera/manual_calib/mydata/right_calib/calibration_right_1.txt
 lidar2camera/auto_calib/tool/deeplabv3_cityscapes_train_2018_02_06.tar.gz
+lidar2imu/auto_calib/mydata/gps_pose_rawdata.txt
+lidar2imu/auto_calib/mydata/gps_pose.txt
+lidar2imu/auto_calib/script/testPG2.py
+lidar2imu/auto_calib/script/testPG.py
+lidar2imu/auto_calib/script/draw_trajcory.py
+lidar2imu/auto_calib/script/draw_points.py
+lidar2imu/auto_calib/script/icons/Black Board.png
+lidar2imu/auto_calib/mydata/gnss-pose-lidar-time-new.txt
+lidar2imu/auto_calib/mydata/gps_pose_raw2ENU.txt
+lidar2imu/auto_calib/demo_ring_pcd_cut.pcd
+lidar2imu/auto_calib/src/workflow_transform_gps_pose_data.drawio
+lidar2imu/auto_calib/src/workflow_transform_gps_pose_data.png
