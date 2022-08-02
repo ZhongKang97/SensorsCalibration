@@ -16,7 +16,7 @@ using namespace std;
 
 int main(int argc, char **argv) {
   if (argc != 5) {
-    cout << "Usage: ./run_adapt_file <input_file_> <lidar_timestamp_file> "
+    cout << "Usage: ./run_adapt_file <input_file_> <lidar_timestamp_file> <lidar_timestamp_file_fullname> "
             "<output_json_file_path> "
             "\nexample:\n\t"
             "./bin/run_adapt_file mydata/gps_pose_linzk.txt "

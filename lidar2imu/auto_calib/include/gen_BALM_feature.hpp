@@ -23,13 +23,18 @@
 
 #include "common/Lidar_parser_base.h"
 
-// #define LIDAR_LASER_NUM 64
-#define LIDAR_LASER_NUM 32
 #define MAX_POINT_CLOUD_NUM 400000
-// #define SCAN_LINE_CUT 30
-#define SCAN_LINE_CUT 15
-// #define INTENSITY_THRESHOLD 35
-#define INTENSITY_THRESHOLD -1
+
+#define USE_DEMO_DATA 0
+#if USE_DEMO_DATA
+  #define LIDAR_LASER_NUM 64
+  #define SCAN_LINE_CUT 30
+  #define INTENSITY_THRESHOLD 35
+#else
+  #define LIDAR_LASER_NUM 32
+  #define SCAN_LINE_CUT 15
+  #define INTENSITY_THRESHOLD -1
+#endif
 
 float cloudCurvature[MAX_POINT_CLOUD_NUM];
 int cloudSortInd[MAX_POINT_CLOUD_NUM];
@@ -61,7 +66,6 @@ bool genPcdFeature(pcl::PointCloud<LidarPointXYZIRT>::Ptr laserCloud,
   for (int i = 0; i < cloud_size; i++) {
     int ring = laserCloud->points[i].ring;
     if (ring < 0 || ring >= LIDAR_LASER_NUM) {
-      std::cerr << "[ERROR] Wrong Ring value " << ring << " \n";
       return false;
     }
     laser_index[ring].push_back(i);
